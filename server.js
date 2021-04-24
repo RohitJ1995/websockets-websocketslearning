@@ -39,6 +39,17 @@ io.on('connection', socket => {
     socket.on('chatMessage', msg => {
       io.to(user.room).emit('message', formatMessage(msg.username, msg.text))
     })
+
+    socket.on('typing', msg => {
+      socket.broadcast
+        .to(msg.room)
+        .emit('typing', `${msg.username} is typing...`)
+    })
+    socket.on('typing_done', msg => {
+      socket.broadcast
+        .to(msg.room)
+        .emit('typing_done', ``)
+    })
   })
 })
 
