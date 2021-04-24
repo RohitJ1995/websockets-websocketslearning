@@ -14,7 +14,23 @@ app.use(express.static(path.join(__dirname, 'public')))
 io.on('connection', socket => {
 	console.log('New web socket')
 
+	// emit/broadcast to single client
 	socket.emit('message', 'Welcome to chartcord!!!')
+
+	// Broadcast when user connects (for all clients)
+	socket.broadcast.emit('message', `User has joined`)
+
+	//Runs when client disconnects
+	socket.on('disconnect', () => {
+		io.emit('message', `A user has left`)
+	})
+
+	//listen fro chatMessage
+	socket.on('chatMessage', msg => {
+		io.emit('message', msg)
+		console.log(msg)
+	})
+
 })
 
 server.listen(port, () => { console.log(`Listening at port ${port}`) })
