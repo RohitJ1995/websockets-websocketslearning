@@ -1,0 +1,26 @@
+{
+  "name": "chatcord",
+  "version": "1.0.0",
+  "description": "Real time chat application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RohitJ1995/websocketslearning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RohitJ1995/websocketslearning/issues"
+  },
+  "homepage": "https://github.com/RohitJ1995/websocketslearning#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^4.0.1"
+  }
+}
